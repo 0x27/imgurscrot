@@ -27,6 +27,9 @@ Beer can be sent to 16MtQtgCVgZvqXoYFzi1L85cKDQAxLGY4A :)
 ## Bugs
 If it fucks up leave an issue in the tracker please.
 
+## Notes
+I had meant to use the actual imgur library but it kept fucking up so I just used requests instead. 
+
 [api.imgur.com]: https://api.imgur.com
 [pyscreenshot]: https://pypi.python.org/pypi/pyscreenshot
 [requests]: https://pypi.python.org/pypi/requests
