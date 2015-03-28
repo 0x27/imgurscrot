@@ -15,6 +15,9 @@ Its all stdlib except [pyscreenshot][pyscreenshot] and [requests][requests] whic
 pip install pyscreenshot requests
 ```
 
+## Use
+Put it somewhere in $PATH as an executable (chmod +x) file named "imgurscrot" and just do "imgurscrot" to screeenshot your full screen and automatically upload it.
+
 ## Licence
 [Licenced under the WTFPL][wtfpl]
 
