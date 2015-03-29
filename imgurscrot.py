@@ -5,23 +5,22 @@
 # assuming you have an account
 # Version: 20150328.1
 # Author: Darren Martyn
-# Licence: WTFPL
 import pyscreenshot as pyscrot
 import requests
 import json
-import random
 import sys
-import string
 import base64
 import time
 import os
+from StringIO import *
 
 # globals. alter these
-client_id = GET_YOUR_OWN
+client_id = 'e32623091a466ab' # XXX: CHANGEME
 
-def upload_image(tempfile):
-    f = open(tempfile, 'rb')
-    b64image = base64.b64encode(f.read())
+def upload_image(pil_img):
+    imgstr = StringIO()
+    pil_img.save(imgstr, 'png')
+    b64image = base64.standard_b64encode(imgstr.getvalue())
     headers = {'Authorization': 'Client-ID '+client_id}
     data = {'image': b64image, 'title': 'Screenshot-%s' %(time.strftime("%H:%M:%S-%d/%m/%Y"))}
     try:
@@ -39,21 +38,9 @@ def main():
         print "[-] Error in screencapture. Printing stack trace and exiting..."
         sys.exit(str(e))
     try:
-        randomfilename = ''.join(random.SystemRandom().choice(string.uppercase + string.digits) for _ in xrange(6))
-        tempfile = "/tmp/%s.png" %(randomfilename)
-        image.save(tempfile)
-    except Exception, e:
-        print "[-] Problem saving tempfile... Printing stack trace and exiting..."
-        sys.exit(str(e)) 
-    try:
-        upload_image(tempfile)
+        upload_image(pil_img=image)
     except Exception, e:
         print "[-] Problem uploading screenshot... Printing stack trace and exiting..."
-        sys.exit(str(e))
-    try:
-        os.unlink(tempfile)
-    except Exception, e:
-        print "[-] Problem deleting our tempfile... Printing stack trace and exiting..."
         sys.exit(str(e))
 
 
