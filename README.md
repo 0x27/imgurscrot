@@ -14,6 +14,7 @@ Its all stdlib except [pyscreenshot][pyscreenshot] and [requests][requests] whic
 ```
 pip install pyscreenshot requests
 ```
+Note: Thanks to the fine work of [Juan Pablo][juanpablo] you should be able to just pip install imgurscrot :)
 
 ## Use
 Put it somewhere in $PATH as an executable (chmod +x) file named "imgurscrot" and just do "imgurscrot" to screeenshot your full screen and automatically upload it.
@@ -34,4 +35,4 @@ I had meant to use the actual imgur library but it kept fucking up so I just use
 [pyscreenshot]: https://pypi.python.org/pypi/pyscreenshot
 [requests]: https://pypi.python.org/pypi/requests
 [wtfpl]: http://wtfpl.net
-
+[juanpablo]: https://github.com/juanpabloaj
